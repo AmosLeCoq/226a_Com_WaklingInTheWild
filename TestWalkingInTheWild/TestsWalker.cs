@@ -68,10 +68,16 @@ namespace TestWalkingInTheWild
         public void DropBagpack_WalkerIsCarringABagpack_WalkerDropsTheBagpack()
         {
             //given
+            Bagpack bagpack = new Bagpack(20.00f);
+            walker.TakeBagpack(bagpack);
+            this.walker.TakeBagpack(bagpack);
+            Assert.NotNull(walker.Bagpack);
 
             //when
+            this.walker.DropBagpack();
 
             //then
+            Assert.Throws<WalkerDropsTheBagpack>(() => this.walker.DropBagpack());
         }
 
         [Test]
@@ -158,6 +164,7 @@ namespace TestWalkingInTheWild
         public void EmptyBagpack_BagpackDoesntContainNeitherClothsOrEquipment_ThrowException()
         {
             //given
+            
 
             //when
 
