@@ -53,7 +53,6 @@ namespace TestWalkingInTheWild
             //given
             //refer to Setup()
             Bagpack bagpack = new Bagpack(20.00f);
-            walker.TakeBagpack(bagpack);
             this.walker.TakeBagpack(bagpack);
             Assert.NotNull(walker.Bagpack);
 
@@ -70,7 +69,7 @@ namespace TestWalkingInTheWild
             //given
             Bagpack bagpack = new Bagpack(20.00f);
             walker.TakeBagpack(bagpack);
-            this.walker.TakeBagpack(bagpack);
+            //this.walker.DropBagpack();
             Assert.NotNull(walker.Bagpack);
 
             //when

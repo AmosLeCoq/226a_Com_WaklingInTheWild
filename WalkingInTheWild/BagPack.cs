@@ -34,7 +34,13 @@
         {
             get
             {
-                return _maxLoad - _equipments.Sum(equipment => equipment.Weight);
+                float maxLoad = _maxLoad;
+                foreach (Equipment equipment in _equipments)
+                {
+                    maxLoad -= equipment.Weight;
+                }
+                return maxLoad;
+                //return _maxLoad - _equipments.Sum(equipment => equipment.Weight);
             }
         }
 

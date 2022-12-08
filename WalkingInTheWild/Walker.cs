@@ -4,7 +4,7 @@
     {
         #region private attributes
         private string _pseudo;
-        private Bagpack? _backpack;
+        private Bagpack? _bagpack;
         #endregion private attributes
 
         #region public methods
@@ -25,18 +25,22 @@
         {
             get
             {
-                return _backpack;
+                return _bagpack;
             }
         }
 
         public void TakeBagpack(Bagpack bagpack)
         {
-            
+            _bagpack = bagpack;
         }
 
         public void DropBagpack()
         {
-            throw new NotImplementedException();
+            if (_bagpack == null)
+            {
+                throw new WalkerDropsTheBagpack();
+            }
+            _bagpack = null;
         }
 
         public void LoadBagpack(List<Cloth> cloths)
@@ -60,6 +64,7 @@
 
         #region nested classes
         public class WalkerException:Exception{}
+        public class WalkerDropsTheBagpack : Exception{}
         public class WalkerNotReadyException : WalkerException { }
         public class EmptyBagpackException : WalkerException { }
         #endregion nested classes
