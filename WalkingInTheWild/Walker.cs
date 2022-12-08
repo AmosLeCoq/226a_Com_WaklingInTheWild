@@ -36,10 +36,6 @@
 
         public void DropBagpack()
         {
-            if (_bagpack == null)
-            {
-                throw new WalkerDropsTheBagpack();
-            }
             _bagpack = null;
         }
 
@@ -64,11 +60,9 @@
 
         #region nested classes
         public class WalkerException:Exception{}
-        public class WalkerDropsTheBagpack : Exception{}
-        public class WalkerNotReadyException : WalkerException { }
+        public class WalkerAlreadyCarriesABagpackException : Exception { }
+        public class WalkerDoesntCarryABagpackException : Exception { }
         public class EmptyBagpackException : WalkerException { }
         #endregion nested classes
-
-
     }
 }

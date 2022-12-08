@@ -1,4 +1,6 @@
-﻿namespace WalkingInTheWild
+﻿using static WalkingInTheWild.Bagpack;
+
+namespace WalkingInTheWild
 {
     public class Bagpack
     {
@@ -60,6 +62,21 @@
         //endregion public methods
 
         //region private methods
+        private float CurrentLoad
+        {
+            //TODO Discussion - getter or method ? (computed property)
+            get
+            {
+                {
+                    float currentLoad = 0;
+                    foreach (Equipment equipment in _equipments)
+                    {
+                        currentLoad += equipment.Weight;
+                    }
+                    return currentLoad;
+                }
+            }
+        }
         //endregion private methods
 
         //region nested classes
