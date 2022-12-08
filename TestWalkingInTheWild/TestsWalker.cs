@@ -68,9 +68,9 @@ namespace TestWalkingInTheWild
         {
             //given
             Bagpack bagpack = new Bagpack(20.00f);
-            walker.TakeBagpack(bagpack);
+            _walker.TakeBagpack(bagpack);
             //this.walker.DropBagpack();
-            Assert.NotNull(walker.Bagpack);
+            Assert.NotNull(_walker.Bagpack);
 
             //when
             _walker.DropBagpack();
@@ -181,6 +181,5 @@ namespace TestWalkingInTheWild
             //then
             Assert.True(false);
         }
-        */
     }
 }
